@@ -93,7 +93,7 @@ You able change cascading order via configurations directives: `path_patterns.ap
 
 ``` yaml
 # app/config/config.yml
-liip_theme:
+shapecode_theme:
     path_patterns:
         app_resource:
             - %%app_path%%/themes/%%current_theme%%/%%template%%
@@ -162,7 +162,7 @@ can still change the theme without problems. For this the theme service
 exists at:
 
 ``` php
-$activeTheme = $container->get('liip_theme.active_theme');
+$activeTheme = $container->get('shapecode_theme.active_theme');
 echo $activeTheme->getName();
 $activeTheme->setName("phone");
 ```
