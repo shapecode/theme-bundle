@@ -1,0 +1,40 @@
+services:
+    shapecode_theme.twig_loader:
+        class: Shapecode\Bundle\ThemeBundle\Twig\Loader\FilesystemLoader
+        arguments:
+            - '@shapecode_theme.file_locator'
+            - '@templating.name_parser'
+            - '@shapecode_theme.active_theme'
+        tags:
+            - { name: twig.loader, priority: 10 } 
+        
+    shapecode_theme.templating_locator:
+        class: Shapecode\Bundle\ThemeBundle\Locator\TemplateLocator
+        arguments:
+            - '@shapecode_theme.file_locator'
+            - '%kernel.cache_dir%'
+            - '@shapecode_theme.active_theme'
+            - []
+            - '%shapecode_theme.path_patterns%'
+        
+    shapecode_theme.file_locator:
+        class: Shapecode\Bundle\ThemeBundle\Locator\FileLocator
+        arguments:
+            - '@kernel'
+            - '@shapecode_theme.active_theme'
+            - '%kernel.root_dir%/Resources'
+        
+    shapecode_theme.active_theme:
+        class: Shapecode\Bundle\ThemeBundle\Theme\ActiveTheme
+        arguments:
+            - '%shapecode_theme.active_theme%'
+            - '%shapecode_theme.themes%'
+
+    liip_theme.theme_request_listener:
+        class: Shapecode\Bundle\ThemeBundle\EventListener\ThemeRequestListener
+        arguments:
+            - '@shapecode_theme.active_theme'
+            - '%shapecode_theme.cookie%'
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
