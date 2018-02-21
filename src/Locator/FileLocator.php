@@ -263,6 +263,11 @@ class FileLocator extends BaseFileLocator
         return $files;
     }
 
+    /**
+     * @param $parameters
+     *
+     * @return array
+     */
     protected function getPathsForBundleResource($parameters)
     {
         $pathPatterns = array();
@@ -281,6 +286,11 @@ class FileLocator extends BaseFileLocator
         return $paths;
     }
 
+    /**
+     * @param $parameters
+     *
+     * @return array
+     */
     protected function getPathsForAppResource($parameters)
     {
         $paths = array();
