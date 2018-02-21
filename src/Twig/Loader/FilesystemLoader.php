@@ -14,7 +14,7 @@ use Twig\Source;
  * @package Shapecode\Bundle\ThemeBundle\Twig\Loader
  * @author  Nikita Loges
  */
-class FilesystemLoader extends LoaderInterface
+class FilesystemLoader implements LoaderInterface
 {
 
     /** @var FileLocatorInterface */
@@ -39,6 +39,14 @@ class FilesystemLoader extends LoaderInterface
         $this->locator = $locator;
         $this->parser = $parser;
         $this->activeTheme = $activeTheme;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getSource($name)
+    {
+        return file_get_contents($this->findTemplate($name));
     }
 
     /**

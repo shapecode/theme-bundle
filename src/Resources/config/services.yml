@@ -2,7 +2,7 @@ services:
     shapecode_theme.twig_loader:
         class: Shapecode\Bundle\ThemeBundle\Twig\Loader\FilesystemLoader
         arguments:
-            - '@shapecode_theme.file_locator'
+            - '@shapecode_theme.templating_locator'
             - '@templating.name_parser'
             - '@shapecode_theme.active_theme'
         tags:
