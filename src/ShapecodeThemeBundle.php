@@ -23,6 +23,6 @@ class ShapecodeThemeBundle extends Bundle
     {
         parent::build($container);
 
-        $container->addCompilerPass(new TemplateResourcesPass(), PassConfig::TYPE_BEFORE_OPTIMIZATION, -10);
+//        $container->addCompilerPass(new TemplateResourcesPass(), PassConfig::TYPE_BEFORE_OPTIMIZATION, -10);
     }
 }
