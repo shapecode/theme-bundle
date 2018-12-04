@@ -30,6 +30,9 @@ services:
             - '%shapecode_theme.active_theme%'
             - '%shapecode_theme.themes%'
 
+    Shapecode\Bundle\ThemeBundle\Theme\ActiveTheme:
+        alias: shapecode_theme.active_theme
+
     liip_theme.theme_request_listener:
         class: Shapecode\Bundle\ThemeBundle\EventListener\ThemeRequestListener
         arguments:
