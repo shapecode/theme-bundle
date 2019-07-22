@@ -12,7 +12,6 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  *
  * @package Shapecode\Bundle\ThemeBundle
  * @author  Nikita Loges
- * @company tenolo GbR
  */
 class ShapecodeThemeBundle extends Bundle
 {

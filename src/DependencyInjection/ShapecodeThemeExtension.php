@@ -12,7 +12,6 @@ use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
  *
  * @package Shapecode\Bundle\ThemeBundle\DependencyInjection
  * @author  Nikita Loges
- * @company tenolo GbR
  */
 class ShapecodeThemeExtension extends ConfigurableExtension
 {
